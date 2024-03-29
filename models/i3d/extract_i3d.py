@@ -61,7 +61,8 @@ class ExtractI3D(BaseExtractor):
             ])
         }
         self.show_pred = args.show_pred
-        self.output_feat_keys = self.streams + ['fps', 'timestamps_ms']
+        # self.output_feat_keys = self.streams + ['fps', 'timestamps_ms']
+        self.output_feat_keys = self.streams 
         self.name2module = self.load_model()
 
     @torch.no_grad()
@@ -134,8 +135,8 @@ class ExtractI3D(BaseExtractor):
         # transforms list of features into a np array
         feats_dict = {stream: np.array(feats) for stream, feats in feats_dict.items()}
         # also include the timestamps and fps
-        feats_dict['fps'] = np.array(fps)
-        feats_dict['timestamps_ms'] = np.array(timestamps_ms)
+        # feats_dict['fps'] = np.array(fps)
+        # feats_dict['timestamps_ms'] = np.array(timestamps_ms)
 
         return feats_dict
 
