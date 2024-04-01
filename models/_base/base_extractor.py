@@ -43,6 +43,11 @@ class BaseExtractor(object):
             if not self.is_already_exist(video_path):
                 # extracts features for a video path (this should be implemented by the child modules)
                 feats_dict = self.extract(video_path)
+                rgb_features = feats_dict['rgb']
+                flow_features = feats_dict['flow']
+                del feats_dict['flow']
+                concatenated_features = np.concatenate((rgb_features, flow_features), axis=1)
+                feats_dict['rgb']= concatenated_features
                 # either prints or saves to numpy/pickle
                 self.action_on_extraction(feats_dict, video_path)
         except KeyboardInterrupt:

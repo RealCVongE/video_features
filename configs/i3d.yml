@@ -2,14 +2,14 @@
 feature_type: 'i3d'
 stack_size: 16 # Feature time span in frames
 step_size: 16 # Feature step size in frames
-streams: 'rgb' # Streams to use for feature extraction (e.g. 'rgb' or 'flow'). Both used if left as "null" (None)
-flow_type: null # Flow to use in I3D. at the moment, only 'raft' (RAFT) is supported
+streams: null # Streams to use for feature extraction (e.g. 'rgb' or 'flow'). Both used if left as "null" (None)
+flow_type: "raft" # Flow to use in I3D. at the moment, only 'raft' (RAFT) is supported
 extraction_fps: null # For original video fps, leave as "null" (None)
 
 # Extraction Parameters
 device: 'cuda:0'  # device as in `torch`, can be 'cpu'
 on_extraction: 'save_numpy'  # what to do once the features are extracted. Can be ['print', 'save_numpy', 'save_pickle']
-output_path: './output/01.원천데이터/normal' # where to store results if saved
+output_path: './output/01.원천데이터/normal/valid' # where to store results if saved
 tmp_path: './tmp' # folder to store the temporary files used for extraction (frames or aud files)
 keep_tmp_files: false # to keep temp files after feature extraction.
 show_pred: false # to show preds of a model, i.e. on a pre-train dataset for each feature (Kinetics 400)
@@ -19,4 +19,4 @@ config: null
 
 # Video paths
 video_paths: null
-file_with_video_paths: 'sample/file_list_hrpro_train_normal.txt' # if the list of videos is large, you might put them in a txt file, use this argument to specify the path
+file_with_video_paths: "/home/ubuntu/video_features/sample/my_list_valid_normal.txt" # if the list of videos is large, you might put them in a txt file, use this argument to specify the path
