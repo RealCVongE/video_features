@@ -1,4 +1,4 @@
-name: video_features
+name: openmmlab2
 channels:
   - pytorch
   - nvidia
